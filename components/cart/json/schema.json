@@ -1,0 +1,11 @@
+{
+  "id": "",
+  "checkoutUrl": "",
+  "cost": {
+    "subtotalAmount": { "amount": "0.0", "currencyCode": "USD" },
+    "totalAmount": { "amount": "0.0", "currencyCode": "USD" },
+    "totalTaxAmount": { "amount": "0.0", "currencyCode": "USD" }
+  },
+  "lines": [],
+  "totalQuantity": 0
+}

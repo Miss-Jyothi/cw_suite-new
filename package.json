@@ -1,0 +1,68 @@
+{
+  "private": true,
+  "packageManager": "pnpm@8.2.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "test": "pnpm lint && pnpm prettier:check"
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "antd": "^5.12.8",
+    "axios": "^1.6.3",
+    "bcrypt": "^5.1.1",
+    "clsx": "^2.0.0",
+    "geist": "^1.0.0",
+    "mongodb": "^6.4.0",
+    "mongoose": "^8.2.1",
+    "next": "14.0.0",
+    "next-auth": "^4.24.7",
+    "razorpay": "^2.9.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.12.0",
+    "react-slick": "^0.29.0",
+    "shortid": "^2.2.16",
+    "slick-carousel": "^1.8.1",
+    "typesense": "^1.7.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
+    "@vercel/git-hooks": "^1.0.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "^14.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "lint-staged": "^15.0.2",
+    "postcss": "^8.4.31",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.5",
+    "typescript": "5.2.2"
+  }
+}
