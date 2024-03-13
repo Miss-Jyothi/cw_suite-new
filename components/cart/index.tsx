@@ -1,6 +1,5 @@
 import { getCart } from 'lib/shopify';
 import { cookies } from 'next/headers';
-import CartModal from './modal';
 
 export default async function Cart() {
   console.log('i am Cart component');
@@ -11,7 +10,7 @@ export default async function Cart() {
     cart = await getCart(cartId);
   }
   console.log(cart);
-  return <CartModal cart={cart} />;
+  //return <CartModal cart={cart} />;
   // return (
   //   <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", boxSizing: 'inherit' }}>
   //     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", boxSizing: 'inherit', width: "100%" }}>

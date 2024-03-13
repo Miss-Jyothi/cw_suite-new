@@ -1,9 +1,32 @@
 import bcrypt from 'bcrypt';
 import { User } from 'models/userModels';
-import NextAuth from "next-auth/next";
+import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { connectDB } from "utils/connect";
-async function login(credentials){
+
+interface Credentials {
+    email: string;
+    password: string;
+    id: string;
+  }
+  interface User {
+    id: string;
+    username: string;
+    email: string;
+    password: string;
+    
+  }
+
+interface Token {
+    username: string;
+    email: string;
+    id: string;
+    
+}
+
+type AdapterUser = any;
+type JWT = any;
+async function login(credentials : Credentials): Promise<User> {
     try{
         connectDB()
         const user = await User.findOne({email:credentials.email})
@@ -16,7 +39,7 @@ async function login(credentials){
         throw new Error('error while logging')
     }
 }
-export const authOptions = {
+export const authOptions :NextAuthOptions = {
     pages:{
         signIn: '/login'
     },
@@ -26,7 +49,7 @@ export const authOptions = {
             credentials:{},
             async authorize(credentials){
                 try{
-                    const user = await login(credentials);
+                    const user = await login(<Credentials>credentials);
                     return user;
                 }catch{
                     console.log('error')
@@ -35,8 +58,8 @@ export const authOptions = {
             }
         })
     ],
-    callback: {
-        async jwt({token,user}){
+    callbacks: {
+        async jwt({token,user}: { token: any, user: User | AdapterUser }){
             if(user){
                 token.username = user.username;
                 token.email = user.email;
@@ -45,17 +68,20 @@ export const authOptions = {
             console.log('token', token)
             return token;
         },
-        async session({session,token}){
-            if(token){
+        async session({ session, token}: { session: any, token: JWT}){
+            if (token) {
                 session.user.username = token.username;
                 session.user.email = token.email;
                 session.user.id = token.id;
             }
-            console.log('session', session)
             return session;
         }
     }
 }
-const handler = NextAuth(authOptions)
-export { handler as GET, handler as POST };
+export default authOptions
+
+
+
+
+
 

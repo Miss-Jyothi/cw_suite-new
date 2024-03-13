@@ -28,6 +28,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@types/bcrypt": "^5.0.2",
     "antd": "^5.12.8",
     "axios": "^1.6.3",
     "bcrypt": "^5.1.1",
@@ -42,6 +43,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.12.0",
     "react-slick": "^0.29.0",
+    "sharp": "^0.33.2",
     "shortid": "^2.2.16",
     "slick-carousel": "^1.8.1",
     "typesense": "^1.7.2"
